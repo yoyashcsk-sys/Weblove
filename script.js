@@ -1,45 +1,45 @@
 
 const btn = document.getElementById("startBtn");
 
-btn.addEventListener("click",()=>{
+btn.addEventListener("click", () => {
 
-document.body.style.transition="all 1.2s ease";
-document.body.style.opacity="0";
+    document.body.style.opacity = "0";
 
-setTimeout(()=>{
+    setTimeout(() => {
 
-document.body.innerHTML=`
+        document.body.innerHTML = `
+        <div class="stars"></div>
 
-<div class="container">
+        <div class="container">
 
-<h1 style="font-size:45px;">Dear ❤️</h1>
+            <h1>Dear ❤️</h1>
 
-<p id="typing"></p>
+            <p id="typing"></p>
 
-</div>
+        </div>
+        `;
 
-`;
+        document.body.style.opacity = "1";
 
-const text="Before you read this... There is something I truly need to tell you.";
+        const message =
+        "Before you read this... There is something I truly need to tell you.";
 
-let i=0;
+        let i = 0;
 
-const typing=setInterval(()=>{
+        const typing = setInterval(() => {
 
-document.getElementById("typing").innerHTML+=text.charAt(i);
+            document.getElementById("typing").innerHTML += message.charAt(i);
 
-i++;
+            i++;
 
-if(i>=text.length){
+            if (i >= message.length) {
 
-clearInterval(typing);
+                clearInterval(typing);
 
-}
+            }
 
-},55);
+        }, 55);
 
-document.body.style.opacity="1";
-
-},1200);
+    }, 1000);
 
 });
