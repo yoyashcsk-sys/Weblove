@@ -245,3 +245,9 @@ opacity:0;
 }
 
 }
+nav,
+.hero,
+.features{
+position:relative;
+z-index:10;
+}
