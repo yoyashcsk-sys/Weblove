@@ -1,18 +1,6 @@
 
-document.getElementById("startBtn").addEventListener("click",()=>{
+document.getElementById("startBtn").onclick = () => {
 
-document.querySelector(".features").scrollIntoView({
-behavior:"smooth"
-});
+    alert("The story begins... ❤️");
 
-});
-
-document.querySelectorAll(".card").forEach(card=>{
-
-card.addEventListener("click",()=>{
-
-alert("Coming Soon ❤️");
-
-});
-
-});
+};
