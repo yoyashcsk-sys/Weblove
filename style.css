@@ -450,37 +450,31 @@ gap:20px;
 
 .photo{
 
-height:170px;
+width:100%;
 
-border-radius:22px;
+height:220px;
 
-background:
+object-fit:cover;
 
-linear-gradient(
+border-radius:20px;
 
-135deg,
+border:2px solid rgba(255,255,255,.15);
 
-rgba(255,255,255,.08),
+box-shadow:
 
-rgba(255,255,255,.03)
+0 15px 35px rgba(0,0,0,.35);
 
-);
+transition:.5s;
 
-border:1px solid rgba(255,255,255,.12);
+}
 
-display:flex;
+.photo:hover{
 
-justify-content:center;
+transform:scale(1.04);
 
-align-items:center;
+box-shadow:
 
-font-size:22px;
-
-color:white;
-
-transition:.4s;
-
-overflow:hidden;
+0 20px 45px rgba(255,90,160,.35);
 
 }
 
