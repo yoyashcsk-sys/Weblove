@@ -1,3 +1,7 @@
+/* ===========================
+   RESET
+=========================== */
+
 *{
 margin:0;
 padding:0;
@@ -5,202 +9,343 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
-background:linear-gradient(180deg,#050814,#0d1125,#1b1025);
-height:100vh;
+
+background:#060814;
+
 overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
+
 color:#fff;
-position:relative;
-animation:fadeIn 2s ease;
+
+height:100vh;
+
 }
 
-/* Moon Glow */
+/* ===========================
+   ANIMATED BACKGROUND
+=========================== */
 
-body::before{
-content:"";
+.background{
+
+position:fixed;
+
+inset:0;
+
+overflow:hidden;
+
+z-index:-10;
+
+background:
+linear-gradient(to bottom,
+#05070f,
+#0a1020,
+#15122c,
+#22153b);
+
+}
+
+/* ===========================
+   MOON
+=========================== */
+
+.moon{
+
 position:absolute;
-top:-220px;
+
+top:-180px;
+
 left:50%;
+
 transform:translateX(-50%);
-width:650px;
-height:650px;
+
+width:550px;
+
+height:550px;
+
 border-radius:50%;
+
 background:radial-gradient(circle,
-rgba(255,90,160,.28),
-transparent 70%);
+
+rgba(255,130,190,.28),
+
+rgba(255,80,170,.08),
+
+transparent 75%
+
+);
+
 filter:blur(30px);
+
+animation:moonGlow 6s ease-in-out infinite;
+
 }
 
-/* Stars */
+@keyframes moonGlow{
+
+0%{
+
+transform:translateX(-50%) scale(1);
+
+}
+
+50%{
+
+transform:translateX(-50%) scale(1.08);
+
+}
+
+100%{
+
+transform:translateX(-50%) scale(1);
+
+}
+
+}
+
+/* ===========================
+   STARS
+=========================== */
 
 .stars{
+
 position:absolute;
+
 width:100%;
+
 height:100%;
-overflow:hidden;
+
+background-image:
+
+radial-gradient(white 1px,transparent 1px),
+
+radial-gradient(white 1px,transparent 1px),
+
+radial-gradient(white 2px,transparent 2px);
+
+background-size:
+
+180px 180px,
+
+250px 250px,
+
+320px 320px;
+
+background-position:
+
+0 0,
+
+80px 120px,
+
+200px 50px;
+
+animation:starMove 40s linear infinite;
+
+opacity:.8;
+
 }
 
-.stars::before,
-.stars::after{
-content:"";
+@keyframes starMove{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(-200px);
+
+}
+
+}
+
+/* ===========================
+   SCENE
+=========================== */
+
+.scene{
+
 position:absolute;
-width:2px;
-height:2px;
-background:white;
-border-radius:50%;
-box-shadow:
-40px 60px white,
-120px 200px white,
-200px 90px white,
-280px 320px white,
-380px 150px white,
-450px 420px white,
-550px 260px white,
-700px 180px white,
-820px 420px white,
-980px 240px white,
-1100px 90px white,
-1250px 320px white;
-animation:twinkle 3s infinite alternate;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100vh;
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+padding:25px;
+
+animation:fade .8s ease;
+
 }
 
-.stars::after{
-animation-delay:1.5s;
-opacity:.5;
+.scene.active{
+
+display:flex;
+
 }
 
-@keyframes twinkle{
-0%{
-opacity:.2;
-transform:scale(.8);
-}
-100%{
-opacity:1;
-transform:scale(1.4);
-}
-}
+/* ===========================
+   GLASS CARD
+=========================== */
 
-/* Main Card */
+.glass{
 
-.container{
-position:relative;
-z-index:5;
-text-align:center;
-padding:45px;
-width:90%;
+width:92%;
+
 max-width:520px;
-background:rgba(255,255,255,.06);
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.1);
+
+padding:40px 30px;
+
 border-radius:30px;
-box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.12);
+
+box-shadow:
+
+0 20px 60px rgba(0,0,0,.45),
+
+0 0 40px rgba(255,90,160,.12);
+
+text-align:center;
+
 }
 
-/* Heart */
+/* ===========================
+   HEART
+=========================== */
 
 .heart{
+
 font-size:90px;
-animation:heartbeat 1.4s infinite;
-filter:drop-shadow(0 0 25px #ff4d8d);
+
+margin-bottom:20px;
+
+animation:heartbeat 1.5s infinite;
+
+filter:drop-shadow(0 0 25px #ff5da2);
+
+}
+
+.bigHeart{
+
+font-size:120px;
+
+margin-bottom:20px;
+
+animation:heartbeat 1.5s infinite;
+
+filter:drop-shadow(0 0 35px #ff5da2);
+
 }
 
 @keyframes heartbeat{
 
-0%,100%{
+0%{
+
 transform:scale(1);
+
 }
 
 15%{
+
 transform:scale(1.18);
+
 }
 
 30%{
+
 transform:scale(1);
+
 }
 
 45%{
-transform:scale(1.14);
-}
+
+transform:scale(1.12);
 
 }
 
-/* Heading */
+60%{
 
-h1{
-font-size:54px;
-margin:25px 0 10px;
-}
-
-/* Text */
-
-p{
-font-size:19px;
-line-height:1.8;
-color:#e8e8e8;
-margin-bottom:35px;
-}
-
-/* Button */
-
-button{
-padding:18px 45px;
-font-size:18px;
-font-weight:600;
-border:none;
-border-radius:60px;
-cursor:pointer;
-background:linear-gradient(45deg,#ff4d8d,#ff8bb8);
-color:white;
-box-shadow:0 0 35px rgba(255,77,141,.45);
-transition:.35s;
-}
-
-button:hover{
-transform:translateY(-4px) scale(1.05);
-box-shadow:0 0 45px rgba(255,77,141,.75);
-}
-
-/* Fade */
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:scale(1.03);
-}
-to{
-opacity:1;
 transform:scale(1);
-}
+
 }
 
-@media(max-width:768px){
+}
+
+/* ===========================
+   TEXT
+=========================== */
 
 h1{
-font-size:40px;
+
+font-size:48px;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+h2{
+
+font-size:24px;
+
+font-weight:400;
+
+color:#ffd8e9;
+
+margin-bottom:25px;
+
 }
 
 p{
-font-size:17px;
-}
 
-.heart{
-font-size:75px;
-}
+font-size:18px;
 
-button{
-width:100%;
-}
+line-height:1.8;
 
-.container{
-padding:35px 25px;
-}
+color:#ececec;
 
 }
-body{
 
-transition:1s ease;
+/* ===========================
+   FADE
+=========================== */
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
 
 }
