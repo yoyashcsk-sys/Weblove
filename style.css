@@ -671,3 +671,14 @@ font-size:18px;
 }
 
 }
+.gallery{
+
+display:flex;
+
+flex-direction:column;
+
+gap:25px;
+
+margin-top:35px;
+
+}
