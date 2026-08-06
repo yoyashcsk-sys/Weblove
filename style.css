@@ -200,3 +200,48 @@ color:#ccc;
 line-height:1.6;
 
 }
+.hearts{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+z-index:0;
+}
+
+.hearts span{
+position:absolute;
+bottom:-50px;
+font-size:24px;
+animation:floatHeart 12s linear infinite;
+opacity:.7;
+}
+
+.hearts span:nth-child(1){left:5%;animation-delay:0s;}
+.hearts span:nth-child(2){left:20%;animation-delay:2s;}
+.hearts span:nth-child(3){left:35%;animation-delay:5s;}
+.hearts span:nth-child(4){left:50%;animation-delay:1s;}
+.hearts span:nth-child(5){left:65%;animation-delay:6s;}
+.hearts span:nth-child(6){left:80%;animation-delay:3s;}
+.hearts span:nth-child(7){left:90%;animation-delay:8s;}
+.hearts span:nth-child(8){left:97%;animation-delay:4s;}
+
+@keyframes floatHeart{
+
+0%{
+transform:translateY(0) scale(.5);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-110vh) scale(1.4);
+opacity:0;
+}
+
+}
